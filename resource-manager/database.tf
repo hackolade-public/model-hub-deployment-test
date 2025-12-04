@@ -55,7 +55,7 @@ resource "terraform_data" "create_new_schema" {
       ORACLE_DB_CONNECTION = local.database_profiles["LOW"]
     }
 
-    command = "podman run --rm -e ORACLE_PASSWORD -e ORACLE_USER -e ORACLE_DB_CONNECTION -e NEW_ORACLE_USER -e NEW_ORACLE_PASSWORD hackoladepublic.azurecr.io/model-hub-sync/seed-first-user:develop"
+    command = "podman run --rm -e ORACLE_PASSWORD -e ORACLE_USER -e ORACLE_DB_CONNECTION -e NEW_ORACLE_USER -e NEW_ORACLE_PASSWORD hackoladepublic.azurecr.io/model-hub-sync/seed-first-user:production"
   }
 }
 
