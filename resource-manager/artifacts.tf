@@ -108,8 +108,9 @@ resource "terraform_data" "copy_docker_images" {
       COMPARTMENT_NAME = local.repository_name_prefix
       REGION = data.oci_identity_regions.region.regions[0]["key"]
       NAMESPACE = data.oci_objectstorage_namespace.object_storage_namespace.namespace
+      HUB_DOMAIN_NAME = var.hub_domain_name
     }
 
-    command = "podman run --rm -e OCI_TOKEN -e COMPARTMENT_NAME -e NAMESPACE -e REGION -e OCI_USERNAME hackoladepublic.azurecr.io/model-hub-sync/copy-docker-images:develop"
+    command = "podman run --rm -e OCI_TOKEN -e COMPARTMENT_NAME -e NAMESPACE -e REGION -e OCI_USERNAME -e HUB_DOMAIN_NAME hackoladepublic.azurecr.io/model-hub-sync/copy-docker-images:production"
   }
 }
